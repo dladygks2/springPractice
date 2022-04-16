@@ -1,0 +1,22 @@
+package com.spring.di2;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Main2 {
+	public static void main(String[] args) {
+
+		// context 객체를 만듦
+		ApplicationContext context = new ClassPathXmlApplicationContext("com/spring/di2/DiBeans.xml");
+		CentralController2 centralController = (CentralController2)context.getBean("centralControl");    // DiBeans.xml에서 만든 것중에서 가져오겠다는 뜻
+
+		// centralControl을 getBean으로 가져오면 Object형태로 가지고 온다. 그래서 빨간 밑줄이 쳐진다.
+		// Object가 아마도 최상위 객체일 거다. 다운캐스팅해야함
+		// 그러면 centralController는 CentralController.java에서 만들어놓은 onAll(), offAll() 메서드같은 것을 사용할 수 있다.
+		centralController.onAll();
+		centralController.offAll();
+
+
+
+	}
+}

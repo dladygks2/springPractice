@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.springboot.instagram.boardstudy.db.BRepository"> <!-- 해당 인터페이스로 잡아주어야한다. -->
+ 	  <select id="getBoardList" resultType="com.springboot.instagram.boardstudy.db.BoardStudy">  <!-- BRepository 인터페이스의 이름과 같도록한다. -->
+ 	                                                                  <!-- public List<BoardStudy> getBoardList(); -->
+ 	       <!-- SQL에서의 board_mst를 그대로 옮김 -->
+			SELECT
+				bm.id AS board_id,
+				bm.board_img,
+				bm.board_content,
+				bm.user_id,
+				um.username,
+				ud.profile_img,
+				um.update_date
+			FROM
+				board_mst bm
+				LEFT OUTER JOIN user_mst um ON(um.id = bm.user_id)
+				LEFT OUTER JOIN user_dtl ud ON(ud.id = bm.user_id);
+		
+		
+		</select>
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  

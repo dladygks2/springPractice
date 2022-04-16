@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!--  HeidiSQL에서 key 값으로 연결할 것이다. user_mst와 user_dtl -->
+  
+  <!-- userRespository 와 관련 확인 -->
+ <mapper namespace="com.springboot.instagram.domain.user.UserRepository"> 
+ <!--
+ 	 해당 인터페이스로 잡아주어야한다. 
+ 	 거기에 메서드명이랑 같아야 한다.
+ -->
+ 
+<!-- 
+	HeidiSQL에서 트리거 사용하는 방법
+	
+	
+ -->
+ 
+ 	<!-- 1 -->
+ 	<select id="checkUsernameByUsername" resultType="Integer" parameterType="String">
+ 		select						<!-- select는 왜 resultType이 있어야하지 -->
+ 			count(username)  <!-- 존재하면 1, 존재하지 않으면 0 -->
+ 		from
+ 			user_mst
+ 		where
+ 			username = #{username};  <!-- #{username}이 String 값이므로 String으로 가져온다. -->
+ 	</select> 
+ 	
+ 	<!-- 2 --> <!-- user 객체를 받아서 insert 하겠다. -->
+ 	<insert id="insertUser" parameterType="com.springboot.instagram.domain.user.User"> 
+ 		insert into
+ 			user_mst
+ 		values(
+ 			0,
+ 			#{email},
+ 			#{name},
+ 			#{username},
+ 			#{oauth2_username},
+ 			#{password},
+ 			#{provider},
+ 			#{role},
+ 			now(),
+ 			now()
+ 		);
+ 		</insert>
+ 		<!-- 3 --> <!-- 얘는 역할이.... username(즉, id?)으로 user_mst의 값들을 얻어낸다.???? 그러니 resultType은 User 겠지. username이 String이므로 parameterType은 String이고-->
+ 		<select id="getUserByUsername" resultType="com.springboot.instagram.domain.user.User" parameterType="String">
+ 			select
+ 				*
+ 			from
+ 				user_mst
+ 			where
+ 				username = #{username};
+ 				
+ 		</select>
+ 		<!-- 4 -->
+ 		<select id="getUserByOAuth2Username" resultType="com.springboot.instagram.domain.user.User" parameterType="String">
+ 			select
+ 				*
+ 			from
+ 				user_mst
+ 			where
+ 				oauth2_username = #{oauth2_username};
+ 				
+ 		</select>
+ 		
+ 		<!-- 5 -->
+ 		<select id="getUserById" resultType="com.springboot.instagram.domain.user.User" parameterType="Integer">
+ 			select
+ 				*
+ 			from
+ 				user_mst
+ 			where
+ 				id = #{id};
+ 		</select>
+ 		
+ 		
+ 		<!-- 6 -->
+ 		<select id="getUserDtlById" resultType="com.springboot.instagram.domain.user.UserDtl" parameterType="Integer">
+ 			select
+ 				*
+ 			from
+ 				user_dtl
+ 			where
+ 				id = #{id};
+ 		</select>
+ 		
+ 		<!-- 7 -->
+ 		<update id="updateUserById" parameterType="com.springboot.instagram.domain.user.User">
+ 			update
+ 				user_mst
+ 			set
+ 				email = #{email},
+ 				name = #{name},
+ 				username =#{username},
+ 				
+ 				update_date = now()
+ 			where
+ 				id = #{id};
+ 		</update>
+ 		<!-- 8 -->
+ 		<update id="updateUserDtlById" parameterType="com.springboot.instagram.domain.user.UserDtl">
+ 			update
+ 				user_dtl
+ 			set
+ 				website = #{website},
+ 				introduction = #{introduction},
+ 				phone =#{phone},
+ 				gender =#{gender},
+ 				profile_img = #{profile_img},
+ 				
+ 				update_date = now()
+ 			where
+ 				id = #{id};
+ 		</update>
+ 		<!-- 9 -->
+ 		<update id="updatePasswordById" parameterType="com.springboot.instagram.domain.user.User">
+ 			update
+ 				user_mst
+ 			set
+ 				password = #{password},
+ 				
+ 				update_date = now()
+ 			where
+ 				id = #{id};
+ 		</update>
+ 		<!-- 12 -->
+ 		<select id="getFollow" resultType="com.springboot.instagram.domain.user.Subscribe" parameterType="com.springboot.instagram.domain.user.Subscribe">
+ 			select
+ 				sm.from_user_id,
+ 				um.username as from_username,
+ 				sm.to_user_id,
+ 				um2.username as to_username
+ 			from
+ 				subscribe_mst sm
+ 				left outer join user_mst um on(um.id = sm.from_user_id)
+ 				left outer join user_mst um2 on(um2.id = sm.to_user_id)
+ 			where
+ 				sm.from_user_id = #{from_user_id}
+ 			and sm.to_user_id = #{to_user_id};
+ 		</select>
+ 		<!-- 10 -->
+ 		<insert id="follow" parameterType="com.springboot.instagram.domain.user.Subscribe">
+ 			insert into
+ 				subscribe_mst
+ 			values(
+ 				#{from_user_id},
+ 				#{to_user_id}
+ 			);
+ 		</insert>
+ 		<!-- 11 -->
+ 		<delete id="followCancel" parameterType="com.springboot.instagram.domain.user.Subscribe">
+ 			delete
+ 			from 
+ 				subscribe_mst
+ 			where
+ 				from_user_id = #{from_user_id}
+ 			and to_user_id = #{to_user_id};
+ 		</delete>
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  

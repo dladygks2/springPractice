@@ -1,0 +1,98 @@
+body{ 
+
+}
+
+form{
+    margin: 0 auto;
+    width: 1000px;
+}
+
+.container{
+    width: 935px;
+    height: 600px;
+    margin: 30px auto 0px;
+    display: flex; 
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: white;
+    
+}
+
+.img-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #dbdbdb; 
+    background-color: antiquewhite;
+    width: 600px;
+    height: 600px;
+}
+
+.img-preview{
+    position: relative; /* 얘가 img-delete-btn의 기준*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 600px;
+    height: 600px;
+    overflow: hidden;
+
+}
+
+.upload-img{
+    max-width: 600px;
+}
+ 
+
+#add-icon{
+    font-size: 5em;
+}
+
+#img-delete-btn:hover{
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.img-add{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-add p{
+    padding: 10px 0px;
+    font-size: 1.8em;
+    font-weight: 100;
+}
+
+.add-img-btn{
+     border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    background-color: #0095f6;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+.img-article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px;
+    width: 335px;
+    height: 600px;
+    background-color: aqua;
+}
+
+
+
+
+.img-add p{
+    padding: 10px 0px;
+    font-size: 1.8em;
+    font-weight: 100;
+}

@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+.banner {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    position: absolute;
+    right: 100px;
+    top: 300px;
+    background-color: pink;
+}
+
+.banner:hover {
+    background-color: bisque;
+    font-weight: bolder;
+}

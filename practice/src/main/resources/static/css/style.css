@@ -1,0 +1,65 @@
+/* -- 전체 설정 -- */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: '맑은 고딕', Malgun Gothic, '굴림', Gulim ,'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.4px;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    
+}
+div {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #494949;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+
+
+ul {
+    display: block;
+    list-style-type: disc;
+    list-style: none;
+    /*
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    */
+}
+
+li {
+    display: list-item;
+    list-style: none;
+    text-align: -webkit-match-parent;
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    width:auto;
+    height: auto;
+}
+.container {
+    width: 100%;
+    height: auto;
+    margin: 30px auto 0px;
+}
+

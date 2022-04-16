@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <!-- namespace에는 아까전의 Respository의 경로(주소)가 들어가야한다.  즉, 인터페이스를 의미-->
+ <mapper namespace="com.spring.study.domain.user.UserRepository2"> <!-- 해당 인터페이스로 잡아주어야한다. -->
+ 	<!-- 여기서 id의 값은  UserRepository2에 생성된 getUserAll();(메서드명)과 이름이 같아야한다.-->
+ 	<select id="getUserAll" resultType="com.spring.study.domain.user.User">
+ 		select
+ 			id,
+ 			username,
+ 			password,
+ 			name,
+ 			email,
+ 			create_date,
+ 			update_date
+ 		from
+ 			user_mst;
+ 	</select>
+ 	
+ 	<select id="idCheck" resultType="Integer" parameterType="String">
+ 		select
+ 			count(username)       
+		from
+			user_mst
+		where
+			username = #{username};
+ 	</select>
+ 	
+ 	
+ 	<insert id="insertUser" parameterType="com.spring.study.domain.user.User">
+ 		insert into
+ 			user_mst
+ 		values(
+ 			0,
+ 			#{username},
+ 			#{password},
+ 			#{name},
+ 			#{email},
+ 			now(),
+ 			now()
+ 		);
+ 	</insert>
+ 	
+ 	<select id="signin" resultType="Integer" parameterType="com.spring.study.domain.user.User">
+ 	<!-- 여기서 query문을 작성해준다 -->
+ 	SELECT
+		COUNT(um.username) + COUNT(um2.password)
+	FROM
+		user_mst um 
+		LEFT OUTER JOIN user_mst um2 ON(um2.id = um.id AND um2.password = #{password})	 
+	WHERE
+		um.username = #{username}
+ 
+	;
+ 	
+ 	
+ 	</select>
+ 		<!-- 
+  		user_mst에서 결과를 가져오면
+  		얻어오는 값의 하나의 행이 <User>객체의 값으로 들고와야한다.
+  		List<User> 이므로
+  		그러면 User 클래스의 변수를 선언할 때, column명을 DBtbl과 같도록 해야한다.
+  	 -->
+ 	<select id="getUserByUsername" resultType="com.spring.study.domain.user.User" parameterType="String">
+ 		select
+ 			*
+ 		from
+ 			user_mst
+ 		where
+ 			username = #{username};
+ 			
+ 	</select>
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  

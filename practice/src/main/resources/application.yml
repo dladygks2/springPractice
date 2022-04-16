@@ -1,0 +1,36 @@
+# 서버 포트번호 지정
+# application_test.properties와 역할은 같다.
+# 'tab'이나 'space' 2번으로 구분을 확실히 해줘야한다.
+
+server:
+  port: 8008
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+      force-request: true
+      force-response: true
+  tomcat:
+    uri-encoding: UTF-8
+    
+# spring 설정
+spring:
+  mvc:
+    view:  # view가 view-component를 의미한다.
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  security:
+    user:
+      name: test 
+      password: 1234
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:8001/practice?useUnicode=true
+    username: root
+    password: toor
+
+mybatis:
+  mapper-locations:
+  - /mapper/*.xml
+      

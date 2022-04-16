@@ -1,0 +1,128 @@
+package com.springboot.practice.config.auth;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Map;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import com.springboot.practice.domain.notice.Notice;
+import com.springboot.practice.domain.post.Post;
+import com.springboot.practice.domain.user.User;
+import com.springboot.practice.domain.user.UserDtl;
+
+import lombok.Data;
+
+@Data
+public class PrincipalDetails implements UserDetails{  // user만 쓸 수 있는 것인가?
+	// UserDetails는 IoC에 등록되어있는 앤데.... authentication 이라는 session에 PrincipalDetails라는 객체가 들어간다.
+	private static final long serialVersionUID = 1L; // tomcat이 객체들을 관리할 떄 사용하는 것으로 그냥 생성만 해주면된다.
+	
+	private User user;
+	private UserDtl userDtl;
+	private Map<String, Object> attributes;
+	
+	private Post post;
+	private Notice notice;
+	
+	
+	// principalDetails가 user 객체의 정보를 받을 때에 사용하겠구만
+	public PrincipalDetails(User user, UserDtl userDtl) {
+		this.user = user;
+		this.userDtl = userDtl;
+		
+	}
+
+	
+	
+	public PrincipalDetails(User user, UserDtl userDtl, Map<String, Object> attributes) {
+		this.user = user;
+		this.userDtl = userDtl;
+		this.attributes = attributes;
+	}
+	
+	public PrincipalDetails(User user, UserDtl userDtl, Map<String, Object> attributes, Post post, Notice notice) {
+		super();
+		this.user = user;
+		this.userDtl = userDtl;
+		this.attributes = attributes;
+		this.post = post;
+		this.notice = notice;
+	}
+	
+	
+	// Collection은 list, set의 부모 interface 이다. 여러 개의 데이터를 담을 수 있는 인터페이스이다.
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// 권한을 설정하는 것. Security가 사용하는 것.
+		
+		Collection<GrantedAuthority> collection = new ArrayList<GrantedAuthority>();
+		// 인터페이스이다. 지금 Collection은 객체 생성이 안되지.... 그래서 무명 클래스를 사용해서 객체를 생성할 거란다.
+		collection.add(new GrantedAuthority() { 
+			
+			private static final long serialVersionUID = 1L; 
+			
+			@Override
+			public String getAuthority() {
+				// TODO Auto-generated method stub
+				return user.getRole(); // 인증을 얻겠다. "ROLE_USER"인지 관리자인지
+			}
+		});
+		return collection;  // collection은 결국 DB를 사용할 user인지 관리자인지 확인할 수 있게 해주겠네
+	}
+
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return user.getPassword();   // principalDetails() 생성자로 user객체를 받아오니 그것으로 passowrd도 얻을 수 있겠네
+	}
+
+	@Override
+	public String getUsername() {
+
+		System.out.println("getUSername을 얻는 메서드 : " + user.getUsername());
+		return user.getUsername();    // principalDetails() 생성자로 user객체를 받아온다.
+	}
+
+	// 이 밑의 4개 중에 return이 false가 하나라도 있으면 계정이 만료된다. 만료되면 해당 username으로 로그인을 할 수 없다.
+	@Override
+	public boolean isAccountNonExpired() {
+		// 계정이 만료되었는지 확인한다. 계정을 완전히 못쓰게 만드는 곳,  <--> 밑의 isEnabled와 비교
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// 예를 들어서 비밀번호 5번 이상 틀리면 잠김기능 같은 것을 설정하는 것
+		// return이 false; 이면 잠금이 된다. if문해서 저장된 비밀번호와 입력받은 비밀번호를 비교해서 같지않으면 +1 을 해주고
+		// 그 숫자를 담은 변수가 5와 같거나 뭐 이런식으로 해서 그 때 return을 true로 해준다. 이런식하면 
+		// 비밀번호를 5회 이상 잘못 입력하셨습니다. 이런거 하겠네
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// 자격증명 만료가 되지는 않았는지 확인
+		// OTP 인증, 2차 인증 같은 거 할 떄 사용한다. 
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// 휴면계정인지 아닌지 확인, 계정을 잠시 정지시키는 것. <--> isAccountNonExpired 와 비교할 수 있다.
+		// true 인 상태가 사용이 가능한 상태이다.
+		return true;
+	}
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+}

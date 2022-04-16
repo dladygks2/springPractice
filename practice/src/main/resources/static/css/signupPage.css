@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+body{
+    margin-top:20px;
+    background-color: #dddee0;
+}
+
+.wrapper{
+    margin: 0 auto;
+    padding: 100px;
+    width: 1000px;
+}
+
+.wrapper h3 {
+	margin: 0 auto;
+	padding : 15px 15px;
+	background-color : #fff;
+	font-weight: bolder;
+	font-size: 20px; 
+	width: 400px;
+}
+
+table {   
+    margin: 30px auto 0px;
+    width: 500px;
+    height: 400px;
+    border: 1px solid #000;
+    /* background-color: rgb(222, 233, 233); */
+    background-color: #fff;
+}
+
+
+tr > td:first-child{
+    align-items:center;
+    color: #fff;
+    background-color: #0095f6;
+}
+
+.submit{
+    margin-right: 20px;
+}
+
+form>input{ 
+    padding: 5px;
+    background-color: #0095f6;
+    color: #fff;
+}
+
+#idCheck{
+    padding: 1px;
+    background-color: #0095f6;
+    color: #fff;
+}

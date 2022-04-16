@@ -1,0 +1,68 @@
+@charset "utf-8";
+
+body{
+    
+    background-color: #ccc; 
+}
+
+/* header 영역 */
+.header {
+    position: relative;
+    width: 100%;
+    
+}
+
+.nav-main{
+    margin: 0 auto;
+    width: 1400px;
+    height: 100px;
+    background-color: #fff;
+}
+
+.nav-main > div{
+    display: inline-block; 
+}
+
+.nav{ 
+    float: right;
+    border-left: 1px solid rgb(250, 248, 248);
+    height: inherit; 
+}
+ 
+.myPage{
+    width: 150px;
+    background-color: rgb(255, 246, 164);
+    height: 50px;
+    padding-top: 10px;
+}
+.myPage >li{
+    font-size: 18px;
+
+}
+
+.login{ 
+    width: 150px;
+    height: 50px;
+    background-color: green;
+}
+.login > li{
+    font-size: 18px;
+    float: left;
+    background-color: aliceblue;
+    height: inherit;
+    width: 50%;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.title{
+    font-size: 50px;
+    margin-left: 203px;
+    margin-top: 15px;
+}
+
+.title:hover {
+    cursor: pointer;
+}
+ 
+ 

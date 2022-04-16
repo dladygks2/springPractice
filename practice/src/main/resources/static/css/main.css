@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+body{ 
+	width: 1400px;
+}
+
+.section {
+    border-top: 1px solid #dbdbdb;
+    width: 1400px;      
+}
+
+.board-item-group2 { 
+    display: flex;
+    justify-content: space-around;
+    margin: 50px auto 50px;
+    width: 100%;
+}
+
+.board-item {
+    position: relative;
+    width: 290px;
+    height: 290px;
+    background-color: #dbdbdb;
+    overflow: hidden;
+    cursor: pointer;  
+}
+
+.board-item img { 
+	position:relative; 
+    background-color: aqua;
+    height: 70%;
+    width: 100%;
+}
+
+.board-item h3 {
+    background-color: aliceblue;
+    height: 20%;
+    overflow: hidden;
+     
+}
+
+.board-item p { 
+    height: 10%;
+    overflow: hidden; 
+    margin-top: 3px;
+}
+
+
+
+
+
+/* 배너 영역/ 화면의 오른쪽 상단???  */
+.banner2{
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    position: fixed;
+    right: 100px;
+    top: 300px;
+    background-color: pink;
+}
+
+.banner2:hover {
+    background-color: bisque;
+    font-weight: bolder;
+    cursor:pointer;
+}

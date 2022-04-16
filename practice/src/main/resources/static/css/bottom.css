@@ -1,0 +1,211 @@
+@charset "utf-8";
+
+body {
+	background-color: #ccc; 
+	
+}
+
+.bottom {
+	width: 1400px; 
+	display:flex;
+	
+}
+
+.wrapper{ 
+}
+
+.banner {
+	width: 790px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.add-section {
+	position: relative;
+	width: 790px;
+	height: 150px;
+
+	display: flex;
+	overflow: hidden;
+
+}
+
+.add-section img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+}
+
+.add-section img:nth-child(1) {
+	left: 0%;
+}
+
+.add-section img:nth-child(2) {
+	left: 100%;
+}
+
+.add-section img:nth-child(3) {
+	left: 200%;
+}
+
+.bottomBanner {
+	display: flex;
+	width: 790px;
+}
+
+.bottomBanner>#bannerInfo {
+	width: 60%;
+	padding-left:30px;
+	padding-top: 15px;
+	text-align: left;
+	background-color: #fff;
+}
+
+/* 버튼식 배너 */
+
+body {
+	margin: 20px auto;
+	padding: 0; 
+	font-family: Arial, "sans-serif";
+	font-size: 11px;
+}
+
+body>div {
+	float: left;
+}
+
+#slider {
+	margin: 0 auto;
+	position: relative;
+	/* relative>absolute */
+	overflow: hidden;
+	width: 320px;
+	height: 150px;
+	background: #fff;
+	border: 2px solid #fdf6dd;
+}
+
+#viewer {
+	/* relative>absolute */
+	position: relative;
+	height: 50px;
+}
+
+img {
+	position: absolute;
+	width: 320px;
+	height: 150px;
+}
+
+img#image1 {
+	left: 0;
+	top: 0;
+}
+
+img#image2 {
+	left: 350px;
+	top: 0;
+}
+
+img#image3 {
+	left: 700px;
+	top: 0;
+}
+
+
+
+#btnGroup {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	right: 0;
+	bottom: 2%;
+}
+
+#btnGroup li {
+	float: left;
+	margin-right: 6px;
+	width: 16px;
+	height: 16px;
+	list-style: none;
+	background: #60f;
+	cursor: pointer;
+}
+
+#btnGroup li a {
+	/* display: block */
+	display: block;
+	width: 100%;
+	height: 100%;
+	line-height: 1;
+	text-align: center;
+	text-decoration: none;
+	background: #fff;
+	color: #000;
+}
+
+ul#btnGroup li a:hover {
+	background: #cf0;
+}
+
+
+.notice {
+	padding: 5px;
+	width: 610px;
+	height: 300px;
+	background-color: white;
+	overflow: hidden;
+	margin-bottom: 300px;
+
+}
+
+.line-bottom{
+	border-bottom: 1px solid #000;
+	margin: 0 10px 10px;
+}
+
+.notice >h1 {
+	text-align:left;
+	margin-bottom : 20px;
+}
+
+.notice>h1> a{
+	font-size: 20px;
+	text-align: left;
+	margin: 5px 0 30px 15px;
+}
+
+.notice li {
+	display: flex;
+	justify-content: space-between;
+}
+
+.notice ul li {
+	line-height: 20px;
+	/*li 세로 간격*/
+	padding-left: 20px;
+	 
+}
+ 
+
+.notice ul li :first-child {
+	margin-bottom: 10px;
+	padding-left: 0px; 
+}
+
+.notice ul li span {
+	display: inline-block;
+	width: 150px;
+	text-align: center;
+
+}
+
+.notice ul li:first-child span {
+	width: 300px;
+	text-align: right;
+	padding-right: 75px;
+}

@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+body{
+	margin-top:20px;
+}
+body{
+    background-color: #dddee0;
+}
+
+.wrapper{
+    margin: 100px auto;
+    padding: 100px;
+    width: 500px;
+    background-color: #fff;
+}
+
+table {   
+    margin: 30px auto 0px;
+    width: 300px;
+    height: 100px;
+    border: 1px solid #ccc;
+    background-color: rgb(107, 180, 252);
+}
+
+
+tr > td:first-child{
+    align-items:center;
+    background-color: #fff;
+}
+
+.submit{
+    padding: 5px 10px;
+    width: 100px;
+    background-color: #39f;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+}
+
+.toSignup{ 
+    margin: 20px auto 0;
+    width: 250px;
+    padding: 10px 0px 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.signupBtn{
+    margin: 10px auto 0px;
+    padding: 5px;
+    width: 100px;
+    background-color: #0095f6; 
+}
+
+.signupBtn a{
+    color : #fff;
+}
