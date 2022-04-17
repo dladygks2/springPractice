@@ -1,0 +1,8 @@
+/**
+ *  회원가입
+ */
+ 
+ const signupInputs = document.querySelectorAll('.su-input');
+ const submitBtn = document.querySelector('.submit');
+ 
+ 

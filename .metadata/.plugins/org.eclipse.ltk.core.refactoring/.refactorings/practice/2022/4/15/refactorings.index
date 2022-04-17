@@ -1,0 +1,22 @@
+1649213764981	Rename resource 'application.properties'
+1649215620159	Copy file
+1649215621107	Copy file
+1649215621462	Copy file
+1649215621741	Copy file
+1649215622055	Copy file
+1649215653349	Rename resource 'main2.jsp'
+1649216241139	Rename resource 'main3.jsp'
+1649216252025	Rename resource 'accountEdit.jsp'
+1649216363708	Rename resource 'main4.jsp'
+1649216427158	Rename resource 'main5.jsp'
+1649216485119	Rename resource 'main6.jsp'
+1649294340131	Delete elements
+1649315056450	Rename type 'Security'
+1649356140418	Rename package 'com.springboot.practice.domain.viewPost'
+1649356152459	Rename type 'ViewPost'
+1649356404420	Rename package 'com.springboot.practice.domain.makePost'
+1649356440878	Delete element
+1649356450189	Rename type 'MakePost'
+1649452559015	Delete element
+1649452573693	Delete element
+1649454263729	Rename type 'SigninReqDto'

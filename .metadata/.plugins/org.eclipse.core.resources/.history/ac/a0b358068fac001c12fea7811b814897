@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+</head>
+<body>
+	회원가입 페이지(auth3)
+
+	<form action="/study/signup" method="POST">
+		아이디 : <input type="text" name="username" required="required"><br> 
+		비밀번호 : <input	type="password" name="password" required="required"><br>
+		이름 : <input type="text" name="name" required="required"><br>
+		이메일 : <input type="email" name="email" required="required"><br>
+		
+		
+		<button>회원가입하기</button>
+		<button type="reset">재작성</button>
+		<!--  <button>은 타입을 정해주지 않으면 'submit'이 기본값이다.-->
+	</form>
+
+	<button type="button" onclick="location.href='/study/signin'">로그인</button>
+
+</body>
+</html>

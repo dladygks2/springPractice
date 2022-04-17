@@ -1,0 +1,46 @@
+package com.springboot.practice.service;
+
+import org.springframework.stereotype.Service;
+
+import com.springboot.practice.config.auth.PrincipalDetails;
+import com.springboot.practice.domain.user.User;
+import com.springboot.practice.domain.user.UserRepository;
+import com.springboot.practice.web.dto.accounts.ProfileReqDto;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@Service
+public class AccountsServiceImpl implements AccountsService {
+
+	private final UserRepository userRepository;
+	
+	@Override
+	public boolean usernameCheck(String username) {
+		int result = userRepository.checkUsernameByUsername(username);
+		
+		if(result == 0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	// principalDetails에 이전의 프로필 사진이 저장되어있다.
+	
+
+	// updateUser
+	@Override
+	public boolean updateUser(PrincipalDetails principalDetails, ProfileReqDto profileReqDto) {
+
+		int id = principalDetails.getUser().getUser_id();
+		String password = principalDetails.getUser().getPassword();
+		String profile_img = principalDetails.getUserDtl().getProfile_img();
+		User userEntity = profileReqDto.toUserEntity(id, password);
+		
+		
+		return false;
+	}
+
+	
+}

@@ -1,0 +1,9 @@
+package com.springboot.practice.service;
+
+public interface AuthService {
+// 로그인과 회원가입에서 가능한 건지 확인하는 부분?????
+	
+	
+	
+}
+

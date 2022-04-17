@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.springboot.practice.user.UserRepository">
+
+	<select id="checkUsernameByUsername" resultType="Integer" parameterType="String">
+		SELECT
+			COUNT(username)
+		FROM
+			user_mst
+		WHERE
+			username= #{username};
+	</select>
+
+	<insert id="insertUser" parameterMap="com.springboot.practice.domain.user.User">
+		INSERT INTO
+			USER_mst
+		VALUES(
+			0,
+			#{username},
+			#{name},
+			#{password},
+			#{phone},
+			#{email},
+			#{bolg},
+			#{role},
+			NOW(),
+			NOW()
+		);
+	</insert>
+
+	<select id="getUserByUsername" resultType="com.springboot.practice.domain.user.User" parameterType="String">
+		SELECT
+			*
+		FROM
+			user_mst
+		where
+			username = #{username};
+	</select>
+	
+	<select id="getUserByUserId" resultType="com.springboot.practice.domain.user.User" parameterType="Integer">
+		
+	</select>
+
+	<!-- 회원정보 수정 -->
+
+	<update id="updateUserByUserId" parameterType="com.springboot.practice.domain.user.User">
+		update
+			user_mst
+		set
+			username = #{username},
+			name = #{name},
+			phone = #{phone},
+			email = #{email},
+			blog = #{blog}
+			update_date = now()
+		where
+			user_id = #{user_id};
+	</update>
+
+	<update id="updateUserDtlByUserId" parameterType="com.springboot.practice.domain.user.UserDtl">
+		update
+			user_dtl
+		set
+			profile_img = #{profile_img}
+		where
+			user_id = #{user_id};
+	</update>
+<!-- 비밀번호 수정 -->
+
+</mapper>

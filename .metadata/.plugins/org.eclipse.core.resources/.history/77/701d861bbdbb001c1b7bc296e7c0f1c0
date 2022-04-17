@@ -1,0 +1,45 @@
+package com.springboot.practice.service;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+
+import com.springboot.practice.domain.user.UserRepository;
+import com.springboot.practice.web.dto.auth.SignupReqDto;
+import com.springboot.practice.web.dto.auth.SignupRespDto;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@Service
+public class AuthServiceImpl implements AuthService{
+
+	private final UserRepository userRepository;
+	
+	@Override
+	public SignupRespDto<?> validCheck(SignupReqDto signupReqDto, BindingResult bindingResult) {
+		// 회원가입정보의 유효성 확인
+		if(bindingResult.hasErrors()) {
+			Map<String, String>errorMap = new HashMap<String, String>();
+			for(FieldError error : bindingResult.getFieldErrors()) {
+				errorMap.put(error.getField(), error.getDefaultMessage());
+			} // 에러들을 errorMap에 담는다.
+			SignupRespDto<Map<String, String>>signupRespDto = new SignupRespDto<Map<String,String>>();
+			signupRespDto.setCode(444);
+			signupRespDto.setData(errorMap);
+			return signupRespDto;
+		
+		// signupRespDto는
+		// AuthServiceImpl.java 에서 
+		// signupRespDto.setCode, .setData 에서 사용된다.
+		
+	}else {
+		int checkUsernameResult = userRepository.checkUsernameByUsername(signupReqDto.getUsername());
+		
+	}
+
+}
+}

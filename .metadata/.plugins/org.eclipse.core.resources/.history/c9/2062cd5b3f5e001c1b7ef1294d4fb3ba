@@ -1,0 +1,57 @@
+const username = document.querySelector('#username');
+const idCheck = document.querySelector('#id-check');
+const signupValues = document.querySelectorAll('.signup-ip');
+ 	
+ 	idCheck.onclick = () => {
+ 		alert('아이디 : ' + username.value);
+ 		// var 대신 지역변수로 let을 사용해라
+ 		for(let i = 0 ; i < signupValues.length; i++){
+ 			alert(signupValues[i].value);
+ 		}
+ 	}
+ 	
+ 	
+ 	/* 
+ 		마이 바티스
+ 		SQL 저장 프로시저 , 퍼시스턴스 프레임워크이다.
+ 		JDBC로 처리하는 상당부분의 코드와 파라미터(매개변수) 설정 및 결과 매핑을 대신해준다.
+ 		
+ 		
+ 		
+ 	*/
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ /*	
+ 	signupValues[0].onblur = () => {		
+ 		const testText = document.querySelector('.test-text');
+		testText.style.color ='red';
+		// testText.innerHTML = '<a href="#">테스트</a>';
+		// 위에 한줄이 밑에 꺼다...
+		const aTag = document.createElement('a');
+		const href = document.createAttribute('href');
+		aTag.setAttributeNode(href);
+		aTag.href = '#';
+		
+		const text = document.createTextNode('테스트'); // 2줄 위에꺼랑 같다.
+		aTag.appendChild(text);
+		testText.appendChild(aTag);
+		  
+ 	}
+ 	
+*/	
+ 	
+	 
+
+ 

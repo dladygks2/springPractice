@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;nav.jsp&apos; to &apos;nav.jsp&apos;&#x0D;&#x0A;- Original project: &apos;jobkorea&apos;&#x0D;&#x0A;- Destination element: &apos;nav.jsp&apos;&#x0D;&#x0A;- Original element: &apos;nav.jsp&apos;" description="Copy file" element1="src/main/webapp/WEB-INF/views/include/nav.jsp" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1644131893262" target="/jobkorea/src/main/webapp/WEB-INF/views/include/nav.jsp" units="0" version="1.0"/>
+</session>

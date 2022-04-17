@@ -1,0 +1,24 @@
+package com.springboot.practice.service;
+
+import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
+
+import com.springboot.practice.domain.user.UserRepository;
+import com.springboot.practice.web.dto.auth.SignupReqDto;
+import com.springboot.practice.web.dto.auth.SignupRespDto;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@Service
+public class AuthServiceImpl implements AuthService{
+
+	private final UserRepository userRepository;
+	
+	@Override
+	public SignupRespDto<?> validCheck(SignupReqDto signupReqDto, BindingResult bindingResult) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;jobkorea/src/main/webapp/WEB-INF/views/auth/resumeFinal.jsp&apos; to &apos;resumeFinal2.jsp&apos;" description="Rename resource &apos;resumeFinal.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/WEB-INF/views/auth/resumeFinal.jsp" name="resumeFinal2.jsp" stamp="1642575138794" updateReferences="true"/>
+</session>

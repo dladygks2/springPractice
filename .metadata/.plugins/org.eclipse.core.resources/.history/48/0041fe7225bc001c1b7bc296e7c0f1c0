@@ -1,0 +1,24 @@
+package com.springboot.practice.service;
+
+import com.springboot.practice.config.auth.PrincipalDetails;
+import com.springboot.practice.domain.user.UserRepository;
+import com.springboot.practice.web.dto.accounts.ProfileReqDto;
+
+public class AccountsServiceImpl implements AccountsService {
+
+	private final UserRepository userRepository;
+	
+	@Override
+	public boolean usernameCheck(String username) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean updateUser(PrincipalDetails principalDetails, ProfileReqDto profileReqDto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+}

@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+</head>
+<body>
+	회원가입 페이지(auth3)
+
+	<form action="/study/signup" method="POST">
+		<!-- input 태그 안에서 id는 밑에 <script> 에서 연결되어서 사용할 것이다. -->
+		아이디 : <input type="text" id="username" name="username" required="required">
+		<button type="button" >중복확인</button><br> 
+		비밀번호 : <input	type="password" name="password" required="required"><br>
+		이름 : <input type="text" name="name" required="required"><br>
+		이메일 : <input type="email" name="email" required="required"><br>
+		
+		
+		<button>회원가입하기</button>
+		<button type="reset">재작성</button>
+		<!--  <button>은 타입을 정해주지 않으면 'submit'이 기본값이다.-->
+	</form>
+
+	<button type="button" onclick="location.href='/study/signin'">로그인</button>
+
+	<script type="text/javascript">
+		const username = document.querySelector('#username'); // 위에 id 값과 연동. #이 id를 의미
+	
+	</script>
+</body>
+</html>

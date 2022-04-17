@@ -1,0 +1,11 @@
+package com.springboot.practice.domain.user;
+
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface UserRepository {
+
+	// mapper의 이름과 같도록
+	// 1. 회원가입시에 username 중복 확인 
+	public int checkUsernameByUsername(String username);
+}

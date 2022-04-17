@@ -1,0 +1,107 @@
+package com.springboot.instagram.config.auth;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Map;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.user.OAuth2User;
+
+import com.springboot.instagram.domain.user.User;
+import com.springboot.instagram.domain.user.UserDtl;
+
+import lombok.Data;
+//import lombok.NoArgsConstructor;
+//@NoArgsConstructor  // 모든 생성자? 생성해주는거??
+@Data   // getter, setter, equal, toString, (또 하나) 만들어준다.
+public class PrincipalDetails implements UserDetails, OAuth2User{
+
+	
+	private static final long serialVersionUID = 1L;
+	
+	private User user;
+	private UserDtl userDtl;
+	private Map<String, Object> attributes;
+	
+	public PrincipalDetails(User user, UserDtl userDtl) {
+		this.user = user;
+		this.userDtl = userDtl;
+	}
+	
+	public PrincipalDetails(User user, UserDtl userDtl, Map<String, Object> attributes) {
+		this.user = user;
+		this.userDtl = userDtl;
+		this.attributes = attributes;
+	}
+	
+	
+	
+	
+	
+	// Collection 은 list, set의 부모 인터페이스이다. 여러개의 데이터를 담을 수 있는 인터페이스이다.
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// 권한 설정하는 것. 시큐리티가 사용하는 거라는데
+		
+		Collection<GrantedAuthority> collection = new ArrayList<GrantedAuthority>();
+		collection.add(new GrantedAuthority() {
+			private static final long serialVersionUID = 1L;
+			@Override
+			public String getAuthority() {
+				return user.getRole();
+			}
+		});
+		return collection;
+	}
+
+	@Override
+	public String getPassword() {
+		return user.getPassword();
+	}
+
+	@Override
+	public String getUsername() {
+		return user.getUsername();
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// 계정이 만료되었는지 확인하는 곳이다. 계정을 완전히 못쓰게 만드는 것. isEnabled 얘랑 비교
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// 예를 들어서 비밀번호 5번 이상 틀리면 잠김기능 같은거 설정하는 것. 
+		// (return false;)되면 잠금이 된다.
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// 자격증명 만료가 되지는 않았는지 확인
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// 휴면계정인지 아닌지 확인. 계정을 잠시 정지시키는 것. isAccountNonExpired 얘랑 비교
+		return true;
+	}
+
+
+
+	@Override
+	public Map<String, Object> getAttributes() { 
+		return attributes;
+	}
+
+
+
+	@Override
+	public String getName() {
+		return (String)attributes.get("name");
+	}
+	
+}

@@ -1,0 +1,24 @@
+package com.springboot.practice.web.controller;
+
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.springboot.practice.service.AuthService;
+import com.springboot.practice.web.dto.auth.SignupReqDto;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@RestController
+@RequestMapping("/auth")
+public class AuthContorller {
+
+	private final AuthService authService;
+	
+	public Object signup(SignupReqDto signupReqDto, BindingResult bindingResult) {
+		return authService.validCheck(signupReqDto, bindingResult);
+	}
+	
+}

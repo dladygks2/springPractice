@@ -1,0 +1,10 @@
+package com.springboot.practice.service;
+
+public interface AccountsService {
+
+// 회원정보 수정
+// username 중복 확인
+	
+	public boolean usernameCheck(String username);
+	
+}

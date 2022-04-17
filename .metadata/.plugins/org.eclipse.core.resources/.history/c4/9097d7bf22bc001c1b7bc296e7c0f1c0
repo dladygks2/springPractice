@@ -1,0 +1,90 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html> 
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비밀번호 변경페이지</title>
+    <link rel="stylesheet" href="/css/accountsMenu.css">
+    <link rel="stylesheet" href="/css/accountsPassword.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+    <section> 
+<jsp:include page="nav.jsp"></jsp:include>
+        <main>
+            <div class="container">
+                <ul class="menu-list">
+                    <li class="menu-li">
+                        <a href="/accountsEdit" class="menu-li-a">프로필 편집</a>
+                    </li>
+                    <li class="menu-li">
+                        <a href="accountsPassword.html" class="menu-li-a-select">비밀번호 변경</a>
+                    </li>
+                </ul>
+                <article>
+                    <div class="password-profile-img">
+                        <div class="password-profile-img-border">
+                            <img src="/image/${principal.userDtl.profile_img }">
+                        </div>
+                        <div class="username-lb">
+                            <h1>${principal.user.username }</h1>
+                        </div>
+                    </div>
+
+                    <div class="password-items">
+                        <aside>
+                            <label for="pre-password-ip" class="password-lb">이번 비밀번호</label>
+                        </aside>
+                        <div class="password-ip">
+                            <input type="password" id="pre-password-ip">
+                        </div>
+                    </div>
+                    <div class="password-items">
+                        <aside>
+                            <label for="new-password-ip" class="password-lb">새 비밀번호</label>
+                        </aside>
+                        <div class="password-ip">
+                            <input type="password" id="new-password-ip">
+                        </div>
+                    </div>
+
+                    <div class="password-items">
+                        <aside>
+                            <label for="new-repassword-ip" class="password-lb">새 비밀번호 확인</label>
+                        </aside>
+                        <div class="password-ip">
+                            <input type="password" id="new-repassword-ip">
+                        </div>
+                    </div>
+
+                    <div class="password-items">
+                        <aside>
+
+                        </aside>
+                        <div class="password-ip">
+                            <button type="button" class="password-submit-btn">비밀번호 변경</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </main>
+    </section>
+    <script src="/js/accounts_password.js"></script>
+    <!-- <script>
+        const file = document.querySelector('file');
+        const btn = document.querySelector('.profile-img-change-btn');
+
+        btn.onclick = () => {
+            file.click();
+        }
+
+        file.onchange = 
+    </script> -->
+</body>
+
+</html>

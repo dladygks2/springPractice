@@ -1,0 +1,33 @@
+/**
+ * 
+ */
+const idCheck = document.querySelector('#id-check'); // 위에 id 값과 연동. #이 id를 의미
+const username = document.querySelector('#username'); // 위와 동일한 것이다.
+/* 위의 입력된 값들을 배열로 받아올것이다. 해당클래스를 가지고 있는 것을 배열로 담아줌 */
+const signupInputs = document.querySelectorAll('.signup-ip');
+const idCheckFlag = document.querySelector('#id-check-flag');
+
+idCheck.onclick = () => {
+	/* alert('아이디 : ' + username.value);
+	alert('.signup-ip : ' + signupValues.value); */
+
+	for (let i = 0; i < signupValues.length; i++) {
+		alert(signupValues[i].value);
+	}
+};
+
+
+/* onblur 테스트 */
+signupValues[0].onblur = () => {
+
+	const testText = document.querySelector('.test-text');
+	testText.style.colr = 'red';
+
+	alert('온블러 테스트 signupValues[0] : ' + signupValues[0].value);
+
+	signupValues[2].value = '김준일'; // onblur 가 일어났을 때 값을 넣어주는 것이 가능하다.
+
+	// HTML 파일에서 보면 testText는 <div> 태그에 class='test-text'로 선언되어 있을 것이다.
+	// 그 <div> 태그 안에다가 또 태그를 넣어주는 것이 .innerHTML 이다. 
+	testText.innerHTML = '<a href="#">테스트</a>';
+}

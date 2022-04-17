@@ -1,0 +1,18 @@
+package com.springboot.practice.web.dto.accounts;
+
+import lombok.Data;
+
+@Data
+public class ProfileReqDto {
+
+	// accounts는 계정 바꾸고 프로필 바꾸고하는데 사용?
+	// 개인정보들 회원가입한다고 입력해놓은것들을 뽑아서 사용할 거다.
+	private String name;
+	private String username;
+	private String blog;
+	private String introduction;
+	private String email;
+	private String phone;
+	private String gender;
+	
+}

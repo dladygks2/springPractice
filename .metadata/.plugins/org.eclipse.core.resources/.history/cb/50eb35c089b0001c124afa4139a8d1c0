@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace에는 아까전의 Respository의 경로(주소)가 들어가야한다.  즉, 인터페이스를 의미-->
+  <mapper namespace="com.spring.study.domain.user.UserRepository2">
+  
+  <!-- 여기서 id의 값은  UserRepository2에 생성된 getUserAll();(메서드명)과 이름이 같아야한다.-->
+  	<select id="getUserAll" resultType="com.spring.study.domain.user.User"> <!-- 이 주소의 형태로 반환을 할 것이다. -->
+  		<!-- 여기서 query문을 작성해준다 -->
+  		select
+  			id,
+  			username,
+  			password,
+  			name,
+  			email,
+  			create_date,
+  			update_date
+  		from
+  			user_mst;
+  	</select>
+  	<!-- 
+  		user_mst에서 결과를 가져오면
+  		얻어오는 값의 하나의 행이 <User>객체의 값으로 들고와야한다.
+  		List<User> 이므로
+  		그러면 User 클래스의 변수를 선언할 때, column명을 DBtbl과 같도록 해야한다.
+  	 -->
+  	
+  	<select id="idCheck" parameterType="String" resultType="Integer">
+  		select
+  			count(username)
+  		from
+  			user_mst
+  		where
+  			username = #{username}; <!-- JSP의 ${}와 똑같은 방식 -->
+  	</select>
+  
+  	<insert id="insertUser" parameterType="com.spring.study.domain.user.User">
+  		insert into
+  			user_mst
+  		values(
+  			0,
+  			#{username}, <!-- userEntity안의 username을 알아서 가져옴 -->
+  			#{password},
+  			#{name},
+  			#{email},
+  			now(),
+  			now()
+  		)
+  	</insert>	
+  	
+  	
+  	
+  </mapper>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
