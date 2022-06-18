@@ -2,7 +2,7 @@
 <aop-reference-model>
 <aop-project name="SpringStudy-yohan"/>
 <aop-project name="instagram-yohan2"/>
-<aop-project name="instagram-yohan"/>
 <aop-project name="jobkorea"/>
+<aop-project name="instagram-yohan"/>
 <aop-project name="practice"/>
 </aop-reference-model>
