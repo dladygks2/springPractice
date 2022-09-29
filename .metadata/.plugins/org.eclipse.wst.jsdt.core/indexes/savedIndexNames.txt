@@ -1,5 +1,6 @@
-INDEX VERSION 1.4+C:\±Ë¡ÿ¿œ∞≠ªÁ\spring\workspace2\springPractice\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-692837661.index
-2338770499.index
-434145316.index
-3222283044.index
+INDEX VERSION 1.4+C:\Users\USER\springPractice\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2752560471.index
+3037974883.index
+950999760.index
+3672473898.index
+2649412349.index
